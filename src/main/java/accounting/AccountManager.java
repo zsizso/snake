@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class AccountManager implements Serializable {
     private static final String FILENAME = "bests.ser";
     private static final String FILENOTFOUND = "File not found";
-
+    private static final String IOEXCEPTION = "File is empty or there is a file io problem";
     private HashMap<String, Gamer> bestTen;
 
     public void addOne(Gamer g) {
@@ -85,7 +85,7 @@ public class AccountManager implements Serializable {
         } catch (FileNotFoundException e) {
             System.out.println(FILENOTFOUND);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println(IOEXCEPTION);
         } catch (ClassNotFoundException e) {
             System.out.println(e.getMessage());
         } finally {
